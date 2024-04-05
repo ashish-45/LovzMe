@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,16 +19,91 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  /* background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+      background: rgb(129, 185, 253);
+      padding: 10px 0;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.hexagon-top {
+  width: 0;
+  border-bottom: 70px solid pink;
+  border-left: 115px solid transparent;
+  border-right: 115px solid transparent;
+
+  margin: 0;
+}
+
+.hexagon-middle {
+  width: 300px;
+  height: 150px;
+  background-color: #6C6;
+  margin: 0;
+  border-radius: 20px;
+}
+
+.hexagon-bottom {
+  width: 0;
+  border-top: 70px solid rgb(255, 99, 125);
+  border-left: 115px solid transparent;
+  border-right: 115px solid transparent;
+  margin: 0;
+}
+
+.hexagon-top::before {
+  content: "UP";
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hexagon-top::after {
+  content: "1.25x Payout";
+  position: absolute;
+  bottom: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+}
+
+.hexagon-bottom::before {
+  content: "Down";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hexagon-bottom::after {
+  content: "1.87x Payout";
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
 }
